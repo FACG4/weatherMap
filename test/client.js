@@ -6,5 +6,3 @@ test('Equals', (t) => {
   t.equal(actual,expected, 'equals');
   t.end();
 });
-
-test
