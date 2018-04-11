@@ -1,6 +1,53 @@
 
 #map {
-    height: 100%;
+    height:100%;
     width: 100%;
     position: absolute;
+    border: #283e60 2px solid;
+}
+
+
+/* body{
+background-color: #e6ebf4;
+
+ } */
+
+
+/* .header1{color: #283e60;
+  margin-top: 40px;
+  font-size: 60px;
+} */
+
+.sec{
+  text-align: center;
+  position: absolute;
+  left: 40%;
+  z-index: 99999;
+  top: 29px;
+
+}
+
+
+/* .header2{color: #486ea8;
+padding-top: 1px;} */
+
+.input{
+  border-radius: 6px;
+  border-color: #6b99e0;
+  height: 25px;
+  width: 250px;
+}
+
+.button{
+  height:30px;
+  background-color: #283e60;
+  width: 40px;
+}
+
+.button:hover{
+  background-color: #b6d0f9;
+}
+
+.fa-search{
+  color: white;
 }
