@@ -7,8 +7,6 @@
     "test": "test"
   },
   "scripts": {
-    "test": "node test/server.js | tap-spec",
-    "start": "node src/server.js"
     "test": "node ./test/server.js | tap-spec",
     "start": "node ./src/server.js"
   },
