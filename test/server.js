@@ -10,14 +10,7 @@ supertest(router)
 .expect('Content-Type' , 'application/json')
 .end((err , res)=>{
   t.error(err);
-  t.deepEqual(res.body.main,{
-temp: 313.15,
-pressure: 1006,
-humidity: 20,
-temp_min: 313.15,
-temp_max: 313.15
-}
-,'equals');
+  t.equal(typeof(res.body),'object','equals 1');
 t.end();
 });
 });
@@ -30,7 +23,20 @@ supertest(router)
 .expect('Content-Type' , 'application/json')
 .end((err , res)=>{
   t.error(err);
-  t.equal(res.body.weather[0].description,"mist",'equals');
+  t.equal(typeof(res.body.weather[0].description),'string','equals 2');
+t.end();
+});
+});
+
+test('third test', (t) => {
+supertest(router)
+.post('/city')
+.send('egypt')
+.expect(200)
+.expect('Content-Type' , 'application/json')
+.end((err , res)=>{
+  t.error(err);
+  t.equal(typeof(res.body.main),'object','equals 3');
 t.end();
 });
 });

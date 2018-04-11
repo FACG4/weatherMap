@@ -11,6 +11,7 @@ function fetch(method, url, inputValue, cb) {
       cb(data);
     }
   }
+  
   xhr.open(method, url);
   xhr.send(JSON.stringify(inputValue));
 }

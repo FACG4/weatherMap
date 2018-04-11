@@ -3,8 +3,6 @@ const router = require('./router');
 
 const port = process.env.PORT || 5000;
 const host = process.env.HOST || 'localhost';
-// const port = 5000;
-// const host = 'localhost';
 
 const server = http.createServer(router);
 server.listen(port,()=>{
