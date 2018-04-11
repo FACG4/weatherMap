@@ -1,6 +1,9 @@
 # Weather map :sweat_drops: :cloud: :sunny: :partly_sunny:
-
 by : Abdullah , Balsam , Salam and Ahmed .
+
+[![Build Status](https://travis-ci.org/FACG4/weatherMap.svg?branch=master)](https://travis-ci.org/FACG4/weatherMap)
+
+
 
 [OUR WEBSITE](https://weathermap-saba.herokuapp.com/)
 
@@ -32,11 +35,3 @@ Single web application give the ability for users to know the weather for specif
     * ``` npm start ``` .
   * In browser :
     - ``` localhost:5000 ``` .
-
-
-
-
-
-> Our Travis preview :
-
-[![Build Status](https://travis-ci.org/FACG4/weatherMap.svg?branch=master)](https://travis-ci.org/FACG4/weatherMap)
