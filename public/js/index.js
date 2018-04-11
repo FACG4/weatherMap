@@ -12,7 +12,8 @@ searchBtn.addEventListener('click', (e) => {
       var result = JSON.parse(res);
       if (result.cod === 200) {
         var description = document.createElement('p');
-        description.textContent = JSON.stringify(result.weather[0].description);
+        var des = JSON.stringify(result.weather[0].description).replace(/["]+/g, '');
+        description.textContent = 'weather :'+des+'\ntemprature :'+result.main.temp+'\nmininum temp :'+result.main.temp_min+'\nmaximum temp :'+result.main.temp_max;
         results.appendChild(description);
       } else {
         alert(JSON.stringify(result.message));
@@ -50,7 +51,8 @@ function initMap() {
         if (result.cod === 200) {
           input.value = result.name;
           var description = document.createElement('p');
-          description.textContent = JSON.stringify(result.weather[0].description);
+          var des = JSON.stringify(result.weather[0].description).replace(/["]+/g, '');
+          description.textContent = 'weather :'+des+'\ntemprature :'+result.main.temp+'\nmininum temp :'+result.main.temp_min+'\nmaximum temp :'+result.main.temp_max;
           results.appendChild(description);
         } else {
           alert(JSON.stringify(result.message));
