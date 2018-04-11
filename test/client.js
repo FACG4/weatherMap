@@ -7,4 +7,3 @@ test('Equals', (t) => {
   t.end();
 });
 
-
