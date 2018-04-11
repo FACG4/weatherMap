@@ -7,13 +7,10 @@
     "test": "test"
   },
   "scripts": {
-<<<<<<< HEAD
     "test": "node test/server.js | tap-spec",
     "start": "node src/server.js"
-=======
     "test": "node ./test/server.js | tap-spec",
     "start": "node ./src/server.js"
->>>>>>> 0546b765f755506729d2bd7373760f5fe2dfbbc3
   },
   "repository": {
     "type": "git",
@@ -26,10 +23,7 @@
   },
   "homepage": "https://github.com/FACG4/weatherMap#readme",
   "devDependencies": {
-<<<<<<< HEAD
     "istanbul": "^0.4.5",
-=======
->>>>>>> 0546b765f755506729d2bd7373760f5fe2dfbbc3
     "supertest": "^3.0.0",
     "tap-spec": "^4.1.1",
     "tape": "^4.9.0"
