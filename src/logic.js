@@ -64,5 +64,7 @@ const requestApi = (cityName, res) => {
 
 module.exports = {
   displayIndex,
-  recieveValue
+  recieveValue,
+  reciveLangLat,
+  findCity
 };

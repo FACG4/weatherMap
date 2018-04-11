@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test_client": "tape test/client | tap-spec",
-    "test_server": "tape test/server | tap-spec"
+    "test_server": "tape test/server | tap-spec",
+    "start": "node src/server"
   },
   "repository": {
     "type": "git",
