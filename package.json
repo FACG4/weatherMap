@@ -7,8 +7,8 @@
     "test": "test"
   },
   "scripts": {
-    "test_client": "tape test/client | tap-spec",
-    "test_server": "tape src/server | tap-spec"
+    "test": "node test/server.js | tap-spec",
+    "start": "node src/server.js"
   },
   "repository": {
     "type": "git",
@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/FACG4/weatherMap#readme",
   "devDependencies": {
-    "nodemon": "^1.17.3",
+    "supertest": "^3.0.0",
     "tap-spec": "^4.1.1",
     "tape": "^4.9.0"
   },
