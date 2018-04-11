@@ -60,26 +60,16 @@ const reciveLangLat=(req, res)=>{
 const findCity=(LangLat,res)=>{
   var LangLat =LangLat.replace(/["]+/g, '').split(',');
   const url = `http://api.openweathermap.org/data/2.5/weather?lat=${LangLat[0]}&lon=${LangLat[1]}&appid=2baf5cca8050b30e4173d7f0bd33c054`;
-  console.log(url);
   request.get(url, (err, resp, body) => {
-    var json = JSON.parse(body);
-    var result = {
-      description: json.weather[0].description,
-      temp: json.main.temp,
-      pressure: json.main.pressure,
-      humidity: json.main.humidity,
-      temp_min: json.main.temp_min,
-      temp_max: json.main.temp_max
-    };
+    var njson = JSON.parse(body);
     res.writeHead(200, {'Content-Type': 'application/json'});
-    res.end(JSON.stringify(result));
-    console.log(result);
+    res.end(JSON.stringify(njson));
   });
 }
 
 module.exports = {
   displayIndex,
-  recieveValue
-  // reciveLangLat,
-  // findCity
+  recieveValue,
+  reciveLangLat,
+  findCity
 };

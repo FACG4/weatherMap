@@ -8,11 +8,8 @@ const router = (req, res)=>{
   }
   else if (endpoint === '/city'){
     handlers.recieveValue(req, res);
-  // } else if (endpoint ==='/posts') {
-  //   handlers.serveBlogs(res);
-  // }
 }else if(endpoint === '/search'){
-  // handlers.reciveLangLat(req, res);
+  handlers.reciveLangLat(req, res);
 }
   else {
     handlers.displayIndex(endpoint, res);
