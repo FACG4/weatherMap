@@ -11,6 +11,8 @@ searchBtn.addEventListener('click', (e) => {
       }
       var result = JSON.parse(res);
       if (result.cod === 200) {
+       
+        initMap(result.coord.lat,result.coord.lon,8)
         var description = document.createElement('p');
         description.textContent = JSON.stringify(result.weather[0].description);
         results.appendChild(description);
@@ -21,13 +23,13 @@ searchBtn.addEventListener('click', (e) => {
   });
 });
 
-function initMap() {
+function initMap(lat=2.2,lng=2.2,zoom=4) {
   var uluru = {
-    lat: -25.363,
-    lng: 131.044
+    lat,
+    lng
   };
   var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 4,
+    zoom: zoom,
     center: uluru
   });
   var marker = new google.maps.Marker({

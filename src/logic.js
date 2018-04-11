@@ -42,6 +42,7 @@ const requestApi = (cityName, res) => {
     res.writeHead(200, {
       'Content-Type': 'application/json'
     });
+    
     res.end(JSON.stringify(sth));
   });
 }
@@ -73,3 +74,4 @@ module.exports = {
   reciveLangLat,
   findCity
 };
+
