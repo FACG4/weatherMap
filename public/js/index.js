@@ -12,7 +12,6 @@ searchBtn.addEventListener("click", e => {
       var result = JSON.parse(res);
       if (result.cod === 200) {
         initMap(result.coord.lat, result.coord.lon, 8);
-        var description = document.createElement("p");
         const data = {
           Description: result.weather[0].description,
           Temperature: result.main.temp,
@@ -58,21 +57,18 @@ function initMap(lat = 2.2, lng = 2.2, zoom = 4) {
         var result = JSON.parse(res);
         if (result.cod === 200) {
           input.value = result.name;
-          var description = document.createElement("p");
-          var des = JSON.stringify(result.weather[0].description).replace(
-            /["]+/g,
-            ""
-          );
-          description.textContent =
-            "weather :" +
-            des +
-            "\ntemprature :" +
-            result.main.temp +
-            "\nmininum temp :" +
-            result.main.temp_min +
-            "\nmaximum temp :" +
-            result.main.temp_max;
-          results.appendChild(description);
+          const data = {
+            Description: result.weather[0].description,
+            Temperature: result.main.temp,
+            "Mininum Temp": result.main.temp_min,
+            "Max Temp": result.main.temp_max
+          };
+          const array = Object.keys(data);
+          array.forEach(item => {
+            const li = document.createElement("li");
+            li.textContent = item + ": " + data[item];
+            results.appendChild(li);
+          });
         } else {
           alert(JSON.stringify(result.message));
         }
