@@ -10,7 +10,13 @@ supertest(router)
 .expect('Content-Type' , 'application/json')
 .end((err , res)=>{
   t.error(err);
-  t.deepEqual(res.body.measurment,{temp: 308.15, pressure: 1009, humidity: 28, temp_min: 308.15, temp_max: 308.15}
+  t.deepEqual(res.body.main,{
+temp: 313.15,
+pressure: 1006,
+humidity: 20,
+temp_min: 313.15,
+temp_max: 313.15
+}
 ,'equals');
 t.end();
 });
@@ -24,7 +30,7 @@ supertest(router)
 .expect('Content-Type' , 'application/json')
 .end((err , res)=>{
   t.error(err);
-  t.equal(res.body.description,"drizzle rain",'equals');
+  t.equal(res.body.weather[0].description,"mist",'equals');
 t.end();
 });
 });

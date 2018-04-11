@@ -2,7 +2,7 @@ const handlers = require('./logic');
 
 const router = (req, res)=>{
   const endpoint = req.url;
-  
+
   if (endpoint === '/'){
     handlers.displayIndex('/index.html', res);
   }
@@ -12,7 +12,7 @@ const router = (req, res)=>{
   //   handlers.serveBlogs(res);
   // }
 }else if(endpoint === '/search'){
-  handlers.reciveLangLat(req, res);
+  // handlers.reciveLangLat(req, res);
 }
   else {
     handlers.displayIndex(endpoint, res);
