@@ -7,7 +7,9 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test_client": "tape test/client | tap-spec",
+    "test_server": "tape test/server | tap-spec"
+
   },
   "repository": {
     "type": "git",
