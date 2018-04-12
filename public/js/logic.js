@@ -1,7 +1,4 @@
-var selector = (elementId) => {
-  return document.getElementById(elementId);
-}
-
+const selector = (elementId) => document.getElementById(elementId);
 
 function fetch(method, url, inputValue, cb) {
   const xhr = new XMLHttpRequest;

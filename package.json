@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "istanbul cover ./test/server.js | tap-spec",
+    "test": "istanbul cover ./test/serverTests.js | tap-spec",
     "start": "node ./src/server.js"
   },
   "repository": {

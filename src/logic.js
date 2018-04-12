@@ -35,17 +35,17 @@ const recieveValue = (req, res) => {
 }
 
 const requestApi = (cityName, res) => {
-  var c = cityName.replace(/["]+/g, '');
-  const url = `http://api.openweathermap.org/data/2.5/weather?q=${c}&appid=2baf5cca8050b30e4173d7f0bd33c054`;
+  var city = cityName.replace(/["]+/g, '');
+  const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=2baf5cca8050b30e4173d7f0bd33c054`;
   request.get(url, (err, resp, body) => {
     if(err){throw new TypeError("Request is error!");}
     else {
-      var sth = JSON.parse(body);
+      var jsonResults = JSON.parse(body);
       res.writeHead(200, {
         'Content-Type': 'application/json'
       });
 
-      res.end(JSON.stringify(sth));
+      res.end(JSON.stringify(jsonResults));
 
     }
   });

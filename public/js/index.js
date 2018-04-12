@@ -6,10 +6,12 @@ var results = selector('results');
 
 
 searchBtn.addEventListener("click", e => {
-  var inputValue = input.value;
+  const {value : inputValue}=input;
   fetch("POST", "/city", inputValue, res => {
     {
       results.setAttribute('id' , 'results');
+      results.classList.remove('disable');
+
       if (results.textContent) {
         results.textContent = "";
       }
@@ -55,8 +57,9 @@ function initMap(lat = 2.2, lng = 2.2, zoom = 4) {
 
   function placeMarkerAndPanTo(latLng, map) {
     fetch("POST", "/search", latLng.lat() + "," + latLng.lng(), res => {
-      {
+
         results.setAttribute('id' , 'results');
+        results.classList.remove('disable');
         if (results.textContent) {
           results.textContent = "";
         }
@@ -78,7 +81,7 @@ function initMap(lat = 2.2, lng = 2.2, zoom = 4) {
         } else {
           alert(JSON.stringify(result.message));
         }
-      }
+
     });
     var marker = new google.maps.Marker({
       position: latLng,
