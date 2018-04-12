@@ -38,16 +38,14 @@ const requestApi = (cityName, res) => {
   var city = cityName.replace(/["]+/g, '');
   const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=2baf5cca8050b30e4173d7f0bd33c054`;
   request.get(url, (err, resp, body) => {
-    var rusltJson = JSON.parse(body);
-   
-    if(error){throw new TypeError("Request is error!");}
+    if(err){throw new TypeError("Request is error!");}
     else {
-      var sth = JSON.parse(body);
+      var jsonResults = JSON.parse(body);
       res.writeHead(200, {
         'Content-Type': 'application/json'
       });
 
-      res.end(JSON.stringify(sth));
+      res.end(JSON.stringify(jsonResults));
 
     }
   });
@@ -68,8 +66,7 @@ const findCity=(LangLat,res)=>{
   var LangLat =LangLat.replace(/["]+/g, '').split(',');
   const url = `http://api.openweathermap.org/data/2.5/weather?lat=${LangLat[0]}&lon=${LangLat[1]}&appid=2baf5cca8050b30e4173d7f0bd33c054`;
   request.get(url, (err, resp, body) => {
-   
-    if(error){throw new TypeError("Request is error!");}
+    if(err){throw new TypeError("Request is error!");}
 else {
   var njson = JSON.parse(body);
   res.writeHead(200, {'Content-Type': 'application/json'});
