@@ -3,7 +3,6 @@ const handlers = require('./logic');
 const router = (req, res)=>{
   const endpoint = req.url;
   let endpointArray=['/','/css/style.css','/js/logic.js','/js/index.js','/img/icon.png'];
-console.log(endpoint);
 
   if (endpoint === '/'){
     handlers.displayIndex('/index.html', res);
