@@ -1,6 +1,8 @@
-var input = selector("inputValue");
-var results = selector("results");
-var searchBtn = selector("searchBtn");
+
+var input = selector('inputValue');
+var searchBtn = selector('searchBtn');
+
+
 
 searchBtn.addEventListener("click", e => {
   var inputValue = input.value;
@@ -11,6 +13,9 @@ searchBtn.addEventListener("click", e => {
       }
       var result = JSON.parse(res);
       if (result.cod === 200) {
+
+        var results = document.createElement('div');
+        results.setAttribute('id' , 'results');
         initMap(result.coord.lat, result.coord.lon, 8);
         const data = {
           Description: result.weather[0].description,
