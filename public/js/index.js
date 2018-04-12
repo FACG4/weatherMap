@@ -1,6 +1,7 @@
 
 var input = selector('inputValue');
 var searchBtn = selector('searchBtn');
+var results = selector('results');
 
 
 
@@ -8,14 +9,13 @@ searchBtn.addEventListener("click", e => {
   var inputValue = input.value;
   fetch("POST", "/city", inputValue, res => {
     {
+      results.setAttribute('id' , 'results');
       if (results.textContent) {
         results.textContent = "";
       }
       var result = JSON.parse(res);
       if (result.cod === 200) {
 
-        var results = document.createElement('div');
-        results.setAttribute('id' , 'results');
         initMap(result.coord.lat, result.coord.lon, 8);
         const data = {
           Description: result.weather[0].description,
@@ -56,6 +56,7 @@ function initMap(lat = 2.2, lng = 2.2, zoom = 4) {
   function placeMarkerAndPanTo(latLng, map) {
     fetch("POST", "/search", latLng.lat() + "," + latLng.lng(), res => {
       {
+        results.setAttribute('id' , 'results');
         if (results.textContent) {
           results.textContent = "";
         }

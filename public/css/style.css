@@ -8,6 +8,9 @@
     position: absolute;
 }
 
+.disable{
+  display: none;
+}
 
 .sec{
   text-align: center;
