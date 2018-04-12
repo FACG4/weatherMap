@@ -2,6 +2,8 @@ const handlers = require('./logic');
 
 const router = (req, res)=>{
   const endpoint = req.url;
+  console.log(endpoint);
+  
   let endpointArray=['/','/css/style.css','/js/logic.js','/js/index.js','/img/icon.png'];
 console.log(endpoint);
 

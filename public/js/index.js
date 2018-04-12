@@ -3,7 +3,7 @@ var results = selector("results");
 var searchBtn = selector("searchBtn");
 
 searchBtn.addEventListener("click", e => {
-  var inputValue = input.value;
+  const {value : inputValue}=input;
   fetch("POST", "/city", inputValue, res => {
     {
       if (results.textContent) {
@@ -23,6 +23,8 @@ searchBtn.addEventListener("click", e => {
           const li = document.createElement("li");
           li.textContent = item + ": " + data[item];
           results.appendChild(li);
+          selector("results").classList.toggle("disabled");
+
         });
       } else {
         alert(JSON.stringify(result.message));
@@ -50,7 +52,7 @@ function initMap(lat = 2.2, lng = 2.2, zoom = 4) {
 
   function placeMarkerAndPanTo(latLng, map) {
     fetch("POST", "/search", latLng.lat() + "," + latLng.lng(), res => {
-      {
+      
         if (results.textContent) {
           results.textContent = "";
         }
@@ -68,11 +70,13 @@ function initMap(lat = 2.2, lng = 2.2, zoom = 4) {
             const li = document.createElement("li");
             li.textContent = item + ": " + data[item];
             results.appendChild(li);
+            results.classList.toggle("disabled") ;
+
           });
         } else {
           alert(JSON.stringify(result.message));
         }
-      }
+      
     });
     var marker = new google.maps.Marker({
       position: latLng,

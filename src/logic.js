@@ -35,15 +35,15 @@ const recieveValue = (req, res) => {
 }
 
 const requestApi = (cityName, res) => {
-  var c = cityName.replace(/["]+/g, '');
-  const url = `http://api.openweathermap.org/data/2.5/weather?q=${c}&appid=2baf5cca8050b30e4173d7f0bd33c054`;
+  var city = cityName.replace(/["]+/g, '');
+  const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=2baf5cca8050b30e4173d7f0bd33c054`;
   request.get(url, (err, resp, body) => {
-    var sth = JSON.parse(body);
+    var rusltJson = JSON.parse(body);
     res.writeHead(200, {
       'Content-Type': 'application/json'
     });
     
-    res.end(JSON.stringify(sth));
+    res.end(JSON.stringify(rusltJson));
   });
 }
 
@@ -62,9 +62,9 @@ const findCity=(LangLat,res)=>{
   var LangLat =LangLat.replace(/["]+/g, '').split(',');
   const url = `http://api.openweathermap.org/data/2.5/weather?lat=${LangLat[0]}&lon=${LangLat[1]}&appid=2baf5cca8050b30e4173d7f0bd33c054`;
   request.get(url, (err, resp, body) => {
-    var njson = JSON.parse(body);
+    var jsonRuselt = JSON.parse(body);
     res.writeHead(200, {'Content-Type': 'application/json'});
-    res.end(JSON.stringify(njson));
+    res.end(JSON.stringify(jsonRuselt));
   });
 }
 
