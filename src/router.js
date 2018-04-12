@@ -5,7 +5,6 @@ const router = (req, res)=>{
   console.log(endpoint);
   
   let endpointArray=['/','/css/style.css','/js/logic.js','/js/index.js','/img/icon.png'];
-console.log(endpoint);
 
   if (endpoint === '/'){
     handlers.displayIndex('/index.html', res);

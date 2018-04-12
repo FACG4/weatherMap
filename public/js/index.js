@@ -23,8 +23,6 @@ searchBtn.addEventListener("click", e => {
           const li = document.createElement("li");
           li.textContent = item + ": " + data[item];
           results.appendChild(li);
-          selector("results").classList.toggle("disabled");
-
         });
       } else {
         alert(JSON.stringify(result.message));
@@ -70,8 +68,6 @@ function initMap(lat = 2.2, lng = 2.2, zoom = 4) {
             const li = document.createElement("li");
             li.textContent = item + ": " + data[item];
             results.appendChild(li);
-            results.classList.toggle("disabled") ;
-
           });
         } else {
           alert(JSON.stringify(result.message));
