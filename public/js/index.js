@@ -1,5 +1,4 @@
 var input = selector('inputValue');
-var results = selector('results');
 var searchBtn = selector('searchBtn');
 
 searchBtn.addEventListener('click', (e) => {
@@ -11,11 +10,14 @@ searchBtn.addEventListener('click', (e) => {
       }
       var result = JSON.parse(res);
       if (result.cod === 200) {
-       
+
         initMap(result.coord.lat,result.coord.lon,8)
+        var results = document.createElement('div');
+        results.setAttribute('id' , 'results');
         var description = document.createElement('p');
         var des = JSON.stringify(result.weather[0].description).replace(/["]+/g, '');
         description.textContent = 'weather :'+des+'\ntemprature :'+result.main.temp+'\nmininum temp :'+result.main.temp_min+'\nmaximum temp :'+result.main.temp_max;
+
         results.appendChild(description);
       } else {
         alert(JSON.stringify(result.message));
